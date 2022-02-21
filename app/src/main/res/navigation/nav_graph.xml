@@ -8,5 +8,15 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.maxkohl.speedreddit.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <argument android:name="redditPost" />
+        <action
+            android:id="@+id/action_homeFragment_to_imagePost"
+            app:destination="@id/imagePost" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagePost"
+        android:name="com.maxkohl.speedreddit.postmedia.ImagePost"
+        android:label="fragment_image_post"
+        tools:layout="@layout/fragment_image_post" />
 </navigation>

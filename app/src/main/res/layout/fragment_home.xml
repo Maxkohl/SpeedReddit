@@ -27,7 +27,6 @@
             app:listData="@{viewModel.redditPostsLists}"
             tools:listitem="@layout/list_view_item" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

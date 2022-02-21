@@ -8,6 +8,10 @@
         <variable
             name="redditPost"
             type="com.maxkohl.speedreddit.data.RedditPost" />
+
+        <variable
+            name="clickListener"
+            type="com.maxkohl.speedreddit.home.RedditPostListener" />
     </data>
 
 
@@ -17,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:onClick="@{() -> clickListener.onClick(redditPost)}"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp">
 
@@ -29,10 +34,10 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/reddit_snoo"
+                app:imageUrl="@{redditPost.previewImgSrc}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:imageUrl="@{redditPost.imgSrc}"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!--TODO Change post_title width to something responsive -->
             <TextView

@@ -16,5 +16,6 @@ data class RedditPost(
     val title: String,
     @Json(name = "subreddit_name_prefixed") val subreddit: String,
     @Json(name = "score") val upvoteCount: Int,
-    @Json(name = "thumbnail") val imgSrc: String
+    @Json(name = "thumbnail") val previewImgSrc: String,
+    @Json(name = "url") val contentUrl: String
 )
