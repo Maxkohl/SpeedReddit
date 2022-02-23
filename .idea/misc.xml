@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_homescreen.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/layout/fragment_image_post.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_text_post.xml" value="0.3123076923076923" />
         <entry key="app/src/main/res/layout/fragment_video_post.xml" value="0.3123076923076923" />
         <entry key="app/src/main/res/layout/list_view_item.xml" value="0.2987889607747396" />
       </map>

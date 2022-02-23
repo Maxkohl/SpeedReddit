@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_videoPost"
             app:destination="@id/videoPost" />
+        <action
+            android:id="@+id/action_homeFragment_to_textPost"
+            app:destination="@id/textPost" />
     </fragment>
     <fragment
         android:id="@+id/imagePost"
@@ -26,4 +29,9 @@
         android:id="@+id/videoPost"
         android:name="com.maxkohl.speedreddit.postmedia.VideoPost"
         android:label="VideoPost" />
+    <fragment
+        android:id="@+id/textPost"
+        android:name="com.maxkohl.speedreddit.postmedia.TextPost"
+        android:label="fragment_text_post"
+        tools:layout="@layout/fragment_text_post" />
 </navigation>

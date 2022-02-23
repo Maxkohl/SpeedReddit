@@ -52,6 +52,7 @@ class HomeFragment : Fragment() {
                 }
                 "hosted:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoPost)
                 "image" -> findNavController().navigate(R.id.action_homeFragment_to_imagePost)
+                else -> findNavController().navigate(R.id.action_homeFragment_to_textPost)
             }
         }
     }
