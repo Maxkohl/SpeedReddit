@@ -20,7 +20,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
         imgView.load(imgUri) {
-            placeholder(R.drawable.reddit_snoo)
+            placeholder(R.drawable.loading_img)
             error(R.drawable.reddit_snoo)
             decoder(ImageDecoderDecoder(imgView.context))
         }

@@ -15,7 +15,7 @@ data class RedditChildrenResponse(val data: RedditPost)
 data class RedditPost(
     val title: String,
     @Json(name = "subreddit_name_prefixed") val subreddit: String,
-    @Json(name = "score") val upvoteCount: Int,
+    @Json(name = "score") val upvoteCount: String,
     @Json(name = "thumbnail") val previewImgSrc: String,
     @Json(name = "url") val contentUrl: String,
     @Json(name = "is_video") val isVideo: Boolean,

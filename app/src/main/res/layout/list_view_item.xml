@@ -67,6 +67,21 @@
                 app:layout_constraintStart_toEndOf="@id/preview_thumbnail"
                 app:layout_constraintTop_toBottomOf="@id/post_title"
                 tools:text="r/subreddit" />
+            <TextView
+                android:id="@+id/post_upvotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:padding="8dp"
+                android:text="@{redditPost.upvoteCount.toString()}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/post_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="score" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
