@@ -19,6 +19,8 @@ data class RedditPost(
     @Json(name = "thumbnail") val previewImgSrc: String,
     @Json(name = "url") val contentUrl: String,
     @Json(name = "is_video") val isVideo: Boolean,
+    @Json(name = "post_hint") val mediaType: String?,
+    @Json(name = "selftext") val postText: String?,
     val media: RedditMedia?
 )
 

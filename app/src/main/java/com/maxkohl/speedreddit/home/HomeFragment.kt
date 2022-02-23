@@ -1,5 +1,7 @@
 package com.maxkohl.speedreddit.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.maxkohl.speedreddit.R
+import com.maxkohl.speedreddit.data.RedditPost
 import com.maxkohl.speedreddit.databinding.FragmentHomeBinding
 
 /**
@@ -30,15 +33,26 @@ class HomeFragment : Fragment() {
         binding.viewModel = homeViewModel
         binding.postsRecyclerview.adapter = HomeListAdapter(RedditPostListener { redditPost ->
             homeViewModel.onPostClicked(redditPost)
-
-            if (redditPost.isVideo) {
-                findNavController().navigate(R.id.action_homeFragment_to_videoPost)
-            } else {
-                findNavController().navigate(R.id.action_homeFragment_to_imagePost)
-            }
-
+            handleNav(redditPost)
         })
 
         return binding.root
+    }
+
+    private fun handleNav(redditPost: RedditPost) {
+        if (!redditPost.mediaType.isNullOrEmpty()) {
+            when (redditPost.mediaType) {
+                "link" -> {
+                    val defaultBrowser = Intent.makeMainSelectorActivity(
+                        Intent.ACTION_MAIN,
+                        Intent.CATEGORY_APP_BROWSER
+                    )
+                    defaultBrowser.data = Uri.parse(redditPost.contentUrl)
+                    startActivity(defaultBrowser)
+                }
+                "hosted:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoPost)
+                "image" -> findNavController().navigate(R.id.action_homeFragment_to_imagePost)
+            }
+        }
     }
 }
