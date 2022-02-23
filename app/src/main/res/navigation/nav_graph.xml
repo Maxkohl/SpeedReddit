@@ -13,10 +13,17 @@
         <action
             android:id="@+id/action_homeFragment_to_imagePost"
             app:destination="@id/imagePost" />
+        <action
+            android:id="@+id/action_homeFragment_to_videoPost"
+            app:destination="@id/videoPost" />
     </fragment>
     <fragment
         android:id="@+id/imagePost"
         android:name="com.maxkohl.speedreddit.postmedia.ImagePost"
         android:label="fragment_image_post"
         tools:layout="@layout/fragment_image_post" />
+    <fragment
+        android:id="@+id/videoPost"
+        android:name="com.maxkohl.speedreddit.postmedia.VideoPost"
+        android:label="VideoPost" />
 </navigation>

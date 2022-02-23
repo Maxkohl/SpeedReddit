@@ -30,7 +30,13 @@ class HomeFragment : Fragment() {
         binding.viewModel = homeViewModel
         binding.postsRecyclerview.adapter = HomeListAdapter(RedditPostListener { redditPost ->
             homeViewModel.onPostClicked(redditPost)
-            findNavController().navigate(R.id.action_homeFragment_to_imagePost)
+
+            if (redditPost.isVideo) {
+                findNavController().navigate(R.id.action_homeFragment_to_videoPost)
+            } else {
+                findNavController().navigate(R.id.action_homeFragment_to_imagePost)
+            }
+
         })
 
         return binding.root

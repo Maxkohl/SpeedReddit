@@ -17,5 +17,15 @@ data class RedditPost(
     @Json(name = "subreddit_name_prefixed") val subreddit: String,
     @Json(name = "score") val upvoteCount: Int,
     @Json(name = "thumbnail") val previewImgSrc: String,
-    @Json(name = "url") val contentUrl: String
+    @Json(name = "url") val contentUrl: String,
+    @Json(name = "is_video") val isVideo: Boolean,
+    val media: RedditMedia?
 )
+
+data class RedditMedia(
+    @Json(name = "reddit_video") val redditVideo: RedditVideo?
+    )
+
+data class RedditVideo(
+    @Json(name = "fallback_url") val videoSrc: String?
+    )
