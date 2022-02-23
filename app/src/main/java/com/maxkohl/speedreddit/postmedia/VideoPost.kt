@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.google.android.exoplayer2.MediaItem
@@ -32,6 +33,8 @@ class VideoPost : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = viewModel.redditPost.value?.title
+
         val simpleExoPlayer = SimpleExoPlayer.Builder(requireContext()).build()
         binding.playerView.player = simpleExoPlayer
 

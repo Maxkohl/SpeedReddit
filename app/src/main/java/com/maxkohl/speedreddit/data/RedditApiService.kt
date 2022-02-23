@@ -15,7 +15,7 @@ private val retrofit =
     ).build()
 
 interface RedditApiService {
-    @GET("all.json?limit=20")
+    @GET("all.json?limit=40")
     suspend fun getAllResponses(): RedditApiResponse
 }
 
