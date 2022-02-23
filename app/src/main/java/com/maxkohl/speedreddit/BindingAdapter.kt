@@ -4,6 +4,7 @@ import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.decode.ImageDecoderDecoder
 import coil.load
 import com.maxkohl.speedreddit.data.RedditPost
 import com.maxkohl.speedreddit.home.HomeListAdapter
@@ -21,6 +22,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
         imgView.load(imgUri) {
             placeholder(R.drawable.reddit_snoo)
             error(R.drawable.reddit_snoo)
+            decoder(ImageDecoderDecoder(imgView.context))
         }
     }
 }
