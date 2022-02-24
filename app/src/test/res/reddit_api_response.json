@@ -1,0 +1,58 @@
+{
+  "data": {
+    "children": [
+      {
+        "data": {
+          "title": "image_post",
+          "subreddit_name_prefixed": "r/image_post",
+          "score": "12345",
+          "thumbnail": "test",
+          "url": "test",
+          "is_video": false,
+          "post_hint": "image",
+          "selftext": "",
+          "media": null
+        }
+      },
+      {
+        "data": {
+          "title": "video_post",
+          "subreddit_name_prefixed": "r/video_post",
+          "score": "12345",
+          "thumbnail": "test",
+          "url": "test",
+          "is_video": true,
+          "post_hint": "hosted:video",
+          "selftext": "",
+          "media": null
+        }
+      },
+      {
+        "data": {
+          "title": "test",
+          "subreddit_name_prefixed": "test",
+          "score": "12345",
+          "thumbnail": "test",
+          "url": "test",
+          "is_video": false,
+          "post_hint": "test",
+          "selftext": "test",
+          "media": null
+        }
+      },
+      {
+        "data": {
+          "title": "test",
+          "subreddit_name_prefixed": "test",
+          "score": "12345",
+          "thumbnail": "test",
+          "url": "test",
+          "is_video": false,
+          "post_hint": "test",
+          "selftext": "test",
+          "media": null
+        }
+      }
+    ]
+  }
+}
