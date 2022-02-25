@@ -17,9 +17,7 @@ class HomeViewModel : ViewModel() {
     val redditPost: LiveData<RedditPost> = _redditPost
 
     private val _response = MutableLiveData<String>()
-
-    val response: LiveData<String>
-        get() = _response
+    val response: LiveData<String> = _response
 
     fun getRedditPostsList() {
         var postsList: MutableList<RedditPost> = mutableListOf()
