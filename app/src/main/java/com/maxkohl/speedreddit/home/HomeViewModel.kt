@@ -4,11 +4,17 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.maxkohl.speedreddit.data.RedditApi
+import com.maxkohl.speedreddit.data.RedditApiService
 import com.maxkohl.speedreddit.data.RedditPost
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import javax.inject.Inject
+import javax.inject.Named
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor( @Named("RedditApiService") private var redditApi: RedditApiService): ViewModel() {
 
     private var _redditPostsList = MutableLiveData<List<RedditPost>>()
     val redditPostsLists: LiveData<List<RedditPost>> = _redditPostsList
@@ -23,7 +29,7 @@ class HomeViewModel : ViewModel() {
         var postsList: MutableList<RedditPost> = mutableListOf()
         viewModelScope.launch {
             try {
-                val response = RedditApi.retrofitService.getAllResponses()
+                val response = redditApi.getAllResponses()
                 response.data.children.forEach { received -> postsList.add(received.data) }
                 _redditPostsList.value = postsList
                 _response.value = "${response.data.children[0].data} RECEIVED"

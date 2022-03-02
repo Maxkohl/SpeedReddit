@@ -12,12 +12,14 @@ import androidx.navigation.fragment.findNavController
 import com.maxkohl.speedreddit.R
 import com.maxkohl.speedreddit.data.RedditPost
 import com.maxkohl.speedreddit.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass.
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private val homeViewModel: HomeViewModel by activityViewModels()

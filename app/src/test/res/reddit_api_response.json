@@ -22,8 +22,8 @@
           "thumbnail": "test",
           "url": "test",
           "is_video": true,
-          "post_hint": "hosted:video",
-          "selftext": "",
+          "post_hint": "test",
+          "selftext": "test",
           "media": null
         }
       },
