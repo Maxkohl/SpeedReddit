@@ -6,10 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.maxkohl.speedreddit.data.RedditApiService
 import com.maxkohl.speedreddit.data.RedditPost
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Named
 

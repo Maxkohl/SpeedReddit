@@ -44,7 +44,10 @@ class HomeFragment : Fragment() {
     private fun handleNav(redditPost: RedditPost) {
         if (!redditPost.mediaType.isNullOrEmpty()) {
             when (redditPost.mediaType) {
-                "link" -> {
+                "text" -> findNavController().navigate(R.id.action_homeFragment_to_textPost)
+                "hosted:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoPost)
+                "image" -> findNavController().navigate(R.id.action_homeFragment_to_imagePost)
+                else -> {
                     val defaultBrowser = Intent.makeMainSelectorActivity(
                         Intent.ACTION_MAIN,
                         Intent.CATEGORY_APP_BROWSER
@@ -52,9 +55,6 @@ class HomeFragment : Fragment() {
                     defaultBrowser.data = Uri.parse(redditPost.contentUrl)
                     startActivity(defaultBrowser)
                 }
-                "hosted:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoPost)
-                "image" -> findNavController().navigate(R.id.action_homeFragment_to_imagePost)
-                else -> findNavController().navigate(R.id.action_homeFragment_to_textPost)
             }
         }
     }
