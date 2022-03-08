@@ -1,6 +1,7 @@
 package com.maxkohl.speedreddit.data
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 data class RedditApiResponse(val data: RedditDataResponse)
 
@@ -22,12 +23,12 @@ data class RedditPost(
     @Json(name = "post_hint") val mediaType: String?,
     @Json(name = "selftext") val postText: String?,
     val media: RedditMedia?
-)
+) : Serializable
 
 data class RedditMedia(
     @Json(name = "reddit_video") val redditVideo: RedditVideo?
-    )
+    ) : Serializable
 
 data class RedditVideo(
     @Json(name = "fallback_url") val videoSrc: String?
-    )
+    ) : Serializable

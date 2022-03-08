@@ -15,7 +15,7 @@ import com.maxkohl.speedreddit.home.HomeViewModel
 class VideoPost : Fragment() {
 
     private val viewModel: HomeViewModel by activityViewModels()
-    private lateinit var player: SimpleExoPlayer
+    private lateinit var simpleExoPlayer: SimpleExoPlayer
     private lateinit var binding: FragmentVideoPostBinding
 
 
@@ -35,7 +35,7 @@ class VideoPost : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = viewModel.redditPost.value?.title
 
-        val simpleExoPlayer = SimpleExoPlayer.Builder(requireContext()).build()
+        simpleExoPlayer = SimpleExoPlayer.Builder(requireContext()).build()
         binding.playerView.player = simpleExoPlayer
 
         val mediaUri = viewModel.redditPost.value?.media?.redditVideo?.videoSrc
@@ -48,4 +48,8 @@ class VideoPost : Fragment() {
         simpleExoPlayer.playWhenReady = true
     }
 
+    override fun onResume() {
+        super.onResume()
+        simpleExoPlayer.seekTo(0)
+    }
 }
