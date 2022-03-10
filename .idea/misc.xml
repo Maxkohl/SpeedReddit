@@ -8,8 +8,11 @@
         <entry key="../../../../layout/compose-model-1646232208554.xml" value="0.75" />
         <entry key="../../../../layout/compose-model-1646235320494.xml" value="2.0" />
         <entry key="../../../../layout/compose-model-1646235537147.xml" value="2.0" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/app_icon.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/clickable_link_24.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.106" />
+        <entry key="app/src/main/res/drawable/ic_rapid_bolt.xml" value="0.1545" />
         <entry key="app/src/main/res/drawable/loading_img.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/white_link_24.xml" value="0.144" />
         <entry key="app/src/main/res/layout-v26/fragment_link.xml" value="0.30092592592592593" />

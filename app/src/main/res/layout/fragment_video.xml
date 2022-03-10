@@ -27,28 +27,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/post_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:ellipsize="end"
-                    android:maxLines="3"
-                    android:text="@{redditPost.title}"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="?android:textColorPrimary"
-                    android:textSize="32sp"
-                    tools:text="PLACEHOLDER" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/post_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:text="@{redditPost.title}"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="32sp"
+                        tools:text="PLACEHOLDER"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/player_view"
+                        app:layout_constraintStart_toStartOf="parent"/>
 
                     <com.google.android.exoplayer2.ui.PlayerView
                         android:id="@+id/player_view"
@@ -57,9 +55,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:resize_mode="fit" />
+                         />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
