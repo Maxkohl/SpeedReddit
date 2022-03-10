@@ -14,9 +14,11 @@
         <entry key="app/src/main/res/layout/fragment_homescreen.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/layout/fragment_image_post.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_rapid_even.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/layout/fragment_rapid_gif.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/fragment_rapid_god.xml" value="0.16944444444444445" />
-        <entry key="app/src/main/res/layout/fragment_rapid_image.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_rapid_image.xml" value="0.31566619873046875" />
         <entry key="app/src/main/res/layout/fragment_rapid_intro.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_rapid_link.xml" value="0.30092592592592593" />
         <entry key="app/src/main/res/layout/fragment_rapid_mode.xml" value="0.37104072398190047" />
         <entry key="app/src/main/res/layout/fragment_rapid_text.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_rapid_video.xml" value="0.1" />
