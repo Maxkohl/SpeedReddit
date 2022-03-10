@@ -1,28 +1,23 @@
 package com.maxkohl.speedreddit.rapidmode
 
-import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.adapters.ImageViewBindingAdapter
-import com.maxkohl.speedreddit.R
+import androidx.fragment.app.Fragment
 import com.maxkohl.speedreddit.data.RedditPost
-import com.maxkohl.speedreddit.databinding.ActivityMainBinding.inflate
-import com.maxkohl.speedreddit.databinding.FragmentRapidImageBinding
+import com.maxkohl.speedreddit.databinding.FragmentRapidLinkBinding
 
-
-class RapidImageFragment : Fragment() {
-
+class RapidLinkFragment : Fragment() {
     lateinit var redditPost: RedditPost
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        arguments?.let {
-            redditPost = it.getSerializable("redditPost") as RedditPost
+        arguments?.getSerializable("redditPost")?.let {
+            redditPost = it as RedditPost
         }
     }
 
@@ -30,8 +25,16 @@ class RapidImageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentRapidImageBinding.inflate(inflater, container, false)
+        val binding = FragmentRapidLinkBinding.inflate(inflater, container, false)
         binding.redditPost = redditPost
+        binding.postImageview.setOnClickListener {
+            val defaultBrowser = Intent.makeMainSelectorActivity(
+                Intent.ACTION_MAIN,
+                Intent.CATEGORY_APP_BROWSER
+            )
+            defaultBrowser.data = Uri.parse(redditPost.contentUrl)
+            startActivity(defaultBrowser)
+        }
 
         return binding.root
     }
@@ -39,7 +42,7 @@ class RapidImageFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(redditPost: RedditPost) =
-            RapidImageFragment().apply {
+            RapidLinkFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable("redditPost", redditPost)
                 }

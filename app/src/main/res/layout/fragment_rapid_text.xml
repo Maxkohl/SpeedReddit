@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".rapidmode.RapidVideoFragment">
+    tools:context=".rapidmode.RapidTextFragment">
 
     <data>
 
@@ -25,7 +25,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -34,30 +34,29 @@
                     android:id="@+id/post_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:ellipsize="end"
-                    android:maxLines="3"
                     android:text="@{redditPost.title}"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="32sp"
-                    tools:text="PLACEHOLDER" />
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/text_scrollview"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <ScrollView
+                    android:id="@+id/text_scrollview"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <com.google.android.exoplayer2.ui.PlayerView
-                        android:id="@+id/player_view"
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:resize_mode="fit"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                        android:layout_height="wrap_content"
+                        android:text="@{redditPost.postText.toString()}"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </ScrollView>
+            </LinearLayout>
+
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

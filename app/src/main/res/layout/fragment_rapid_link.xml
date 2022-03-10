@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".rapidmode.RapidVideoFragment">
+    tools:context=".rapidmode.RapidImageFragment">
 
     <data>
 
@@ -25,38 +25,65 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/post_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:ellipsize="end"
-                    android:maxLines="3"
                     android:text="@{redditPost.title}"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="32sp"
-                    tools:text="PLACEHOLDER" />
+                    android:textSize="20sp"
+                    tools:text="PLACEHOLDER"
+                    />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.google.android.exoplayer2.ui.PlayerView
-                        android:id="@+id/player_view"
+                    <ImageView
+                        android:id="@+id/link_overlay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:alpha=".5"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/link_image"
+                        app:layout_constraintTop_toTopOf="@id/post_imageview"
+                        app:layout_constraintBottom_toBottomOf="@id/post_imageview"
+                        app:layout_constraintStart_toStartOf="@id/post_imageview"
+                        android:elevation="4dp"/>
+
+                    <TextView
+                        android:id="@+id/click_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TAP TO VIEW"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        app:layout_constraintTop_toBottomOf="@id/link_overlay"
+                        app:layout_constraintBottom_toBottomOf="@id/post_imageview"
+                        app:layout_constraintStart_toStartOf="@id/post_imageview"
+                        android:textColor="@color/black"
+                        android:background="@color/cardview_dark_background"
+                        />
+
+                    <ImageView
+                        android:id="@+id/post_imageview"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:resize_mode="fit"
+                        android:src="@drawable/reddit_snoo"
+                        app:imageUrl="@{redditPost.previewImgSrc}"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
