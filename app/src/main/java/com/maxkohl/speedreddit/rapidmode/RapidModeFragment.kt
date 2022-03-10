@@ -1,11 +1,10 @@
 package com.maxkohl.speedreddit.rapidmode
 
+import android.R
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.maxkohl.speedreddit.data.RedditPost
@@ -21,7 +20,6 @@ class RapidModeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = FragmentRapidModeBinding.inflate(inflater)
 
         homeViewModel.getRedditPostsList()
@@ -37,12 +35,5 @@ class RapidModeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Rapid Mode"
-
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-//        viewPager.unregisterOnPageChangeCallback(viewPager2PageChangeCallback)
-
     }
 }

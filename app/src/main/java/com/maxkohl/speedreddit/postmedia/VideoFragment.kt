@@ -3,6 +3,7 @@ package com.maxkohl.speedreddit.postmedia
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.exoplayer2.MediaItem.fromUri
@@ -36,6 +37,7 @@ class VideoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         binding = FragmentVideoBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -137,6 +139,10 @@ class VideoFragment : Fragment() {
         val reducedUrl = url.split("-".toRegex())[0]
 
         return "${reducedUrl}-mobile.mp4"
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.clear()
     }
 
     companion object {

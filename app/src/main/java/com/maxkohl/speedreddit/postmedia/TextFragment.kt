@@ -3,6 +3,7 @@ package com.maxkohl.speedreddit.postmedia
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import com.maxkohl.speedreddit.data.RedditPost
@@ -22,10 +23,15 @@ class TextFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         val binding = FragmentTextBinding.inflate(inflater)
         binding.redditPost = redditPost
 
         return binding.root
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.clear()
     }
 
     companion object {
