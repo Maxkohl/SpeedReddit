@@ -24,7 +24,7 @@ class HomeViewModel @Inject constructor( @Named("RedditApiService") private var 
     val response: LiveData<String> = _response
 
     fun getRedditPostsList() {
-        var postsList: MutableList<RedditPost> = mutableListOf()
+        val postsList: MutableList<RedditPost> = mutableListOf()
         viewModelScope.launch {
             try {
                 val response = redditApi.getAllResponses()
@@ -35,9 +35,5 @@ class HomeViewModel @Inject constructor( @Named("RedditApiService") private var 
                 _response.value = "Failure: ${e.message}"
             }
         }
-    }
-
-    fun onPostClicked(redditPost: RedditPost) {
-        _redditPost.value = redditPost
     }
 }

@@ -34,7 +34,6 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = homeViewModel
         binding.postsRecyclerview.adapter = HomeListAdapter(RedditPostListener { redditPost ->
-            homeViewModel.onPostClicked(redditPost)
             handleNav(redditPost)
         })
 
