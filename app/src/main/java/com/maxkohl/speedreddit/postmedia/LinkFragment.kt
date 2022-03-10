@@ -27,7 +27,8 @@ class LinkFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-        val binding = FragmentLinkBinding.inflate(inflater, container, false)
+
+        val binding = FragmentLinkBinding.inflate(inflater)
         binding.redditPost = redditPost
         binding.postImageview.setOnClickListener {
             val defaultBrowser = Intent.makeMainSelectorActivity(
