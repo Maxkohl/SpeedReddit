@@ -42,12 +42,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun handleNav(redditPost: RedditPost) {
+        val bundle = Bundle().apply {
+            putSerializable("redditPost", redditPost)
+        }
+
         if (!redditPost.mediaType.isNullOrEmpty()) {
             when (redditPost.mediaType) {
-                "text" -> findNavController().navigate(R.id.action_homeFragment_to_textPost)
-                "hosted:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoPost)
-                "rich:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoPost)
-                "image" -> findNavController().navigate(R.id.action_homeFragment_to_imagePost)
+                "text" -> findNavController().navigate(R.id.action_homeFragment_to_textFragment, bundle)
+                "hosted:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoFragment, bundle)
+                "rich:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoFragment, bundle)
+                "image" -> findNavController().navigate(R.id.action_homeFragment_to_imageFragment, bundle)
                 else -> {
                     val defaultBrowser = Intent.makeMainSelectorActivity(
                         Intent.ACTION_MAIN,
@@ -60,6 +64,6 @@ class HomeFragment : Fragment() {
             return
         }
 
-        if (redditPost.isSelfPost) return findNavController().navigate(R.id.action_homeFragment_to_textPost)
+        if (redditPost.isSelfPost) return findNavController().navigate(R.id.action_homeFragment_to_textFragment, bundle)
     }
 }

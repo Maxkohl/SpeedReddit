@@ -5,11 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.maxkohl.speedreddit.R
 import com.maxkohl.speedreddit.data.RedditPost
-import com.maxkohl.speedreddit.databinding.FragmentRapidTextBinding
+import com.maxkohl.speedreddit.databinding.FragmentTextBinding
 
-class RapidTextFragment : Fragment() {
+class TextFragment : Fragment() {
     lateinit var redditPost: RedditPost
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +22,7 @@ class RapidTextFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentRapidTextBinding.inflate(inflater)
+        val binding = FragmentTextBinding.inflate(inflater)
         binding.redditPost = redditPost
 
         return binding.root
@@ -32,7 +31,7 @@ class RapidTextFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(redditPost: RedditPost) =
-            RapidTextFragment().apply {
+            TextFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable("redditPost", redditPost)
                 }

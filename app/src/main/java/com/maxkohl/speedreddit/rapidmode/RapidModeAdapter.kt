@@ -2,7 +2,6 @@ package com.maxkohl.speedreddit.rapidmode
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.adapter.FragmentViewHolder
 import com.maxkohl.speedreddit.data.RedditPost
 
 class RapidModeAdapter(rapidModeFragment: RapidModeFragment, val redditPosts: List<RedditPost>) :
@@ -15,12 +14,12 @@ class RapidModeAdapter(rapidModeFragment: RapidModeFragment, val redditPosts: Li
     override fun createFragment(position: Int): Fragment {
         val redditPost = redditPosts[position]
 
-        if (redditPost.isSelfPost) return RapidTextFragment.newInstance(redditPost)
+        if (redditPost.isSelfPost) return TextFragment.newInstance(redditPost)
         return when (redditPost.mediaType) {
-            "image" -> RapidImageFragment.newInstance(redditPost)
-            "rich:video" -> RapidVideoFragment.newInstance(redditPost)
-            "hosted:video" -> RapidVideoFragment.newInstance(redditPost)
-            else -> RapidLinkFragment.newInstance(redditPost)
+            "image" -> ImageFragment.newInstance(redditPost)
+            "rich:video" -> VideoFragment.newInstance(redditPost)
+            "hosted:video" -> VideoFragment.newInstance(redditPost)
+            else -> LinkFragment.newInstance(redditPost)
         }
     }
 }

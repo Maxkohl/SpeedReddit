@@ -1,40 +1,43 @@
-package com.maxkohl.speedreddit.postmedia
+package com.maxkohl.speedreddit.rapidmode
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import com.google.android.exoplayer2.*
+import com.google.android.exoplayer2.MediaItem.fromUri
+import com.google.android.exoplayer2.PlaybackException
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.MergingMediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.upstream.*
+import com.google.android.exoplayer2.upstream.DataSource
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
 import com.google.android.exoplayer2.util.Util
 import com.maxkohl.speedreddit.data.RedditPost
-import com.maxkohl.speedreddit.databinding.FragmentVideoPostBinding
-import com.maxkohl.speedreddit.home.HomeViewModel
+import com.maxkohl.speedreddit.databinding.FragmentVideoBinding
 
+class VideoFragment : Fragment() {
 
-class VideoPost : Fragment() {
-
-    private val viewModel: HomeViewModel by activityViewModels()
+    lateinit var redditPost: RedditPost
     private lateinit var simpleExoPlayer: SimpleExoPlayer
-    private lateinit var binding: FragmentVideoPostBinding
-    private lateinit var redditPost: RedditPost
+    private lateinit var binding: FragmentVideoBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            redditPost = it.getSerializable("redditPost") as RedditPost
+        }
+    }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentVideoPostBinding.inflate(inflater)
-        binding.lifecycleOwner = this
-        redditPost = viewModel.redditPost.value!!
+        binding = FragmentVideoBinding.inflate(inflater, container, false)
 
-        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -52,7 +55,6 @@ class VideoPost : Fragment() {
         simpleExoPlayer.prepare()
         simpleExoPlayer.playWhenReady = true
     }
-
 
     override fun onPause() {
         super.onPause()
@@ -73,7 +75,6 @@ class VideoPost : Fragment() {
         }
     }
 
-
     private fun releasePlayer() {
         //release player when done
         simpleExoPlayer.release()
@@ -84,18 +85,17 @@ class VideoPost : Fragment() {
     private fun prepareRedditVideo() {
 
         val url = redditPost.media?.redditVideo?.videoSrc
-        val videoMediaItem = url?.let { MediaItem.fromUri(it) }
-        val audioMediaItem = url?.let { MediaItem.fromUri(getVideoAudioUri(it)) }
+        val videoMediaItem = url?.let { fromUri(it) }
+        val audioMediaItem = url?.let { fromUri(getVideoAudioUri(it)) }
 
-        val videoDataSourceFactory: DataSource.Factory =
+        val dataSourceFactory: DataSource.Factory =
             DefaultHttpDataSource.Factory()
         val videoSource: ProgressiveMediaSource? = videoMediaItem?.let {
-            ProgressiveMediaSource.Factory(videoDataSourceFactory)
+            ProgressiveMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(it)
         }
-
         val audioSource: ProgressiveMediaSource? = audioMediaItem?.let {
-            ProgressiveMediaSource.Factory(videoDataSourceFactory)
+            ProgressiveMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(it)
         }
 
@@ -127,7 +127,7 @@ class VideoPost : Fragment() {
     private fun prepareRichVideo() {
         val uri = redditPost.media?.richVideo?.videoSrc
         val formattedUri = uri?.let { formatRichVideo(it) }
-        val mediaItem = formattedUri?.let { MediaItem.fromUri(it) }
+        val mediaItem = formattedUri?.let { fromUri(it) }
         if (mediaItem != null) {
             simpleExoPlayer.addMediaItem(mediaItem)
         }
@@ -138,4 +138,15 @@ class VideoPost : Fragment() {
 
         return "${reducedUrl}-mobile.mp4"
     }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(redditPost: RedditPost) =
+            VideoFragment().apply {
+                arguments = Bundle().apply {
+                    putSerializable("redditPost", redditPost)
+                }
+            }
+    }
+
 }

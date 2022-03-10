@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_homescreen.xml" value="0.22395833333333334" />
+        <entry key="app/src/main/res/layout/fragment_image.xml" value="0.30092592592592593" />
         <entry key="app/src/main/res/layout/fragment_image_post.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_rapid_even.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/layout/fragment_rapid_gif.xml" value="0.2328125" />

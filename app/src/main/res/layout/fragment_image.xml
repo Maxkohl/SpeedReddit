@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".rapidmode.RapidTextFragment">
+    tools:context=".rapidmode.ImageFragment">
 
     <data>
 
@@ -25,38 +25,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/post_title"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/image_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{redditPost.title}"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@id/text_scrollview"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ScrollView
-                    android:id="@+id/text_scrollview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/post_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintEnd_toEndOf="parent">
 
                     <TextView
+                        android:id="@+id/post_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{redditPost.postText.toString()}"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:text="@{redditPost.title}"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
-                </ScrollView>
-            </LinearLayout>
+                        android:textSize="32sp"
+                        tools:text="PLACEHOLDER"
+                        android:layout_marginTop="20dp" />
 
+                    <ImageView
+                        android:id="@+id/post_imageview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/reddit_snoo"
+                        app:imageUrl="@{redditPost.contentUrl}" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

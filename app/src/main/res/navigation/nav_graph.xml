@@ -11,35 +11,36 @@
         android:label="HomeFragment">
         <argument android:name="redditPost" />
         <action
-            android:id="@+id/action_homeFragment_to_imagePost"
-            app:destination="@id/imagePost" />
-        <action
-            android:id="@+id/action_homeFragment_to_videoPost"
-            app:destination="@id/videoPost" />
-        <action
-            android:id="@+id/action_homeFragment_to_textPost"
-            app:destination="@id/textPost" />
-        <action
             android:id="@+id/action_homeFragment_to_rapidModeFragment"
             app:destination="@id/rapidModeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_textFragment"
+            app:destination="@id/textFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/imagePost"
-        android:name="com.maxkohl.speedreddit.postmedia.ImagePost"
-        android:label="fragment_image_post"
-        tools:layout="@layout/fragment_image_post" />
-    <fragment
-        android:id="@+id/videoPost"
-        android:name="com.maxkohl.speedreddit.postmedia.VideoPost"
-        android:label="VideoPost" />
-    <fragment
-        android:id="@+id/textPost"
-        android:name="com.maxkohl.speedreddit.postmedia.TextPost"
-        android:label="fragment_text_post"
-        tools:layout="@layout/fragment_text_post" />
     <fragment
         android:id="@+id/rapidModeFragment"
         android:name="com.maxkohl.speedreddit.rapidmode.RapidModeFragment"
         android:label="fragment_rapid_mode"
         tools:layout="@layout/fragment_rapid_mode" />
+    <fragment
+        android:id="@+id/imageFragment"
+        android:name="com.maxkohl.speedreddit.rapidmode.ImageFragment"
+        android:label="fragment_image"
+        tools:layout="@layout/fragment_image" />
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.maxkohl.speedreddit.rapidmode.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video" />
+    <fragment
+        android:id="@+id/textFragment"
+        android:name="com.maxkohl.speedreddit.rapidmode.TextFragment"
+        android:label="fragment_text"
+        tools:layout="@layout/fragment_text" />
 </navigation>

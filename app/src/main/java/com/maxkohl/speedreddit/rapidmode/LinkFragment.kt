@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.maxkohl.speedreddit.data.RedditPost
-import com.maxkohl.speedreddit.databinding.FragmentRapidLinkBinding
+import com.maxkohl.speedreddit.databinding.FragmentLinkBinding
 
-class RapidLinkFragment : Fragment() {
+class LinkFragment : Fragment() {
     lateinit var redditPost: RedditPost
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +25,7 @@ class RapidLinkFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentRapidLinkBinding.inflate(inflater, container, false)
+        val binding = FragmentLinkBinding.inflate(inflater, container, false)
         binding.redditPost = redditPost
         binding.postImageview.setOnClickListener {
             val defaultBrowser = Intent.makeMainSelectorActivity(
@@ -42,7 +42,7 @@ class RapidLinkFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(redditPost: RedditPost) =
-            RapidLinkFragment().apply {
+            LinkFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable("redditPost", redditPost)
                 }
