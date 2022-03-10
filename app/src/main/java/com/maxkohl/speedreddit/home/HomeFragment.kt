@@ -46,6 +46,7 @@ class HomeFragment : Fragment() {
             when (redditPost.mediaType) {
                 "text" -> findNavController().navigate(R.id.action_homeFragment_to_textPost)
                 "hosted:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoPost)
+                "rich:video" -> findNavController().navigate(R.id.action_homeFragment_to_videoPost)
                 "image" -> findNavController().navigate(R.id.action_homeFragment_to_imagePost)
                 else -> {
                     val defaultBrowser = Intent.makeMainSelectorActivity(
@@ -56,6 +57,9 @@ class HomeFragment : Fragment() {
                     startActivity(defaultBrowser)
                 }
             }
+            return
         }
+
+        if (redditPost.isSelfPost) return findNavController().navigate(R.id.action_homeFragment_to_textPost)
     }
 }

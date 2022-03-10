@@ -20,15 +20,21 @@ data class RedditPost(
     @Json(name = "thumbnail") val previewImgSrc: String,
     @Json(name = "url") val contentUrl: String,
     @Json(name = "is_video") val isVideo: Boolean,
+    @Json(name = "is_self") val isSelfPost: Boolean,
     @Json(name = "post_hint") val mediaType: String?,
     @Json(name = "selftext") val postText: String?,
     val media: RedditMedia?
 ) : Serializable
 
 data class RedditMedia(
-    @Json(name = "reddit_video") val redditVideo: RedditVideo?
+    @Json(name = "reddit_video") val redditVideo: RedditVideo?,
+    @Json(name = "oembed") val richVideo: RichVideo?
     ) : Serializable
 
 data class RedditVideo(
     @Json(name = "fallback_url") val videoSrc: String?
     ) : Serializable
+
+data class RichVideo(
+    @Json(name = "thumbnail_url") val videoSrc: String?
+) : Serializable
