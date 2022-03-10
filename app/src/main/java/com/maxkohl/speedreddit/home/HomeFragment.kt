@@ -15,11 +15,8 @@ import com.maxkohl.speedreddit.data.RedditPost
 import com.maxkohl.speedreddit.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+const val FRAGMENT_TITLE = "Top 100"
+
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
@@ -43,7 +40,13 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.title = "Top 100"
+        (activity as AppCompatActivity).supportActionBar?.title = FRAGMENT_TITLE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.title = FRAGMENT_TITLE
+
     }
 
     private fun handleNav(redditPost: RedditPost) {

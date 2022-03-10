@@ -7,8 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.maxkohl.speedreddit.home.HomeFragment"
-        android:label="HomeFragment">
+        android:name="com.maxkohl.speedreddit.home.HomeFragment">
         <argument android:name="redditPost" />
         <action
             android:id="@+id/action_homeFragment_to_rapidModeFragment"
@@ -28,21 +27,17 @@
     <fragment
         android:id="@+id/rapidModeFragment"
         android:name="com.maxkohl.speedreddit.rapidmode.RapidModeFragment"
-        android:label="fragment_rapid_mode"
         tools:layout="@layout/fragment_rapid_mode" />
     <fragment
         android:id="@+id/imageFragment"
         android:name="com.maxkohl.speedreddit.postmedia.ImageFragment"
-        android:label="fragment_image"
         tools:layout="@layout/fragment_image" />
     <fragment
         android:id="@+id/videoFragment"
         android:name="com.maxkohl.speedreddit.postmedia.VideoFragment"
-        android:label="fragment_video"
         tools:layout="@layout/fragment_video" />
     <fragment
         android:id="@+id/textFragment"
         android:name="com.maxkohl.speedreddit.postmedia.TextFragment"
-        android:label="fragment_text"
         tools:layout="@layout/fragment_text" />
 </navigation>

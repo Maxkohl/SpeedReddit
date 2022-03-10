@@ -1,6 +1,5 @@
 package com.maxkohl.speedreddit.rapidmode
 
-import android.R
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +9,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.maxkohl.speedreddit.data.RedditPost
 import com.maxkohl.speedreddit.databinding.FragmentRapidModeBinding
 import com.maxkohl.speedreddit.home.HomeViewModel
+
+const val FRAGMENT_TITLE = "Rapid Mode"
 
 class RapidModeFragment : Fragment() {
 
@@ -34,6 +35,6 @@ class RapidModeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.title = "Rapid Mode"
+        (activity as AppCompatActivity).supportActionBar?.title = FRAGMENT_TITLE
     }
 }

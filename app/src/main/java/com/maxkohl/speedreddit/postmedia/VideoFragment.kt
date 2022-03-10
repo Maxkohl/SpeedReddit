@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.exoplayer2.MediaItem.fromUri
 import com.google.android.exoplayer2.PlaybackException
 import com.google.android.exoplayer2.Player
@@ -45,6 +46,8 @@ class VideoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = redditPost.title
+
 
         simpleExoPlayer = SimpleExoPlayer.Builder(requireContext()).build()
         binding.playerView.player = simpleExoPlayer
@@ -60,12 +63,15 @@ class VideoFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
+        (activity as AppCompatActivity).supportActionBar?.title = "Rapid Mode"
 
         simpleExoPlayer.pause()
     }
 
     override fun onResume() {
         super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.title = redditPost.title
+
 
         simpleExoPlayer.seekTo(0)
     }
@@ -76,6 +82,13 @@ class VideoFragment : Fragment() {
             releasePlayer()
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (activity as AppCompatActivity).supportActionBar?.title = "Rapid Mode"
+    }
+
+
 
     private fun releasePlayer() {
         //release player when done
