@@ -3,6 +3,10 @@ package com.maxkohl.speedreddit.rapidmode
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.maxkohl.speedreddit.data.RedditPost
+import com.maxkohl.speedreddit.postmedia.ImageFragment
+import com.maxkohl.speedreddit.postmedia.LinkFragment
+import com.maxkohl.speedreddit.postmedia.TextFragment
+import com.maxkohl.speedreddit.postmedia.VideoFragment
 
 class RapidModeAdapter(rapidModeFragment: RapidModeFragment, val redditPosts: List<RedditPost>) :
     FragmentStateAdapter(rapidModeFragment) {

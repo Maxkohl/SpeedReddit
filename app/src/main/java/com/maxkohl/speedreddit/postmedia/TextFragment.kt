@@ -1,23 +1,20 @@
-package com.maxkohl.speedreddit.rapidmode
+package com.maxkohl.speedreddit.postmedia
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.maxkohl.speedreddit.data.RedditPost
-import com.maxkohl.speedreddit.databinding.FragmentLinkBinding
+import com.maxkohl.speedreddit.databinding.FragmentTextBinding
 
-class LinkFragment : Fragment() {
+class TextFragment : Fragment() {
     lateinit var redditPost: RedditPost
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        arguments?.getSerializable("redditPost")?.let {
-            redditPost = it as RedditPost
+        arguments?.let {
+            redditPost = it.getSerializable("redditPost") as RedditPost
         }
     }
 
@@ -25,16 +22,8 @@ class LinkFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentLinkBinding.inflate(inflater, container, false)
+        val binding = FragmentTextBinding.inflate(inflater)
         binding.redditPost = redditPost
-        binding.postImageview.setOnClickListener {
-            val defaultBrowser = Intent.makeMainSelectorActivity(
-                Intent.ACTION_MAIN,
-                Intent.CATEGORY_APP_BROWSER
-            )
-            defaultBrowser.data = Uri.parse(redditPost.contentUrl)
-            startActivity(defaultBrowser)
-        }
 
         return binding.root
     }
@@ -42,7 +31,7 @@ class LinkFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(redditPost: RedditPost) =
-            LinkFragment().apply {
+            TextFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable("redditPost", redditPost)
                 }

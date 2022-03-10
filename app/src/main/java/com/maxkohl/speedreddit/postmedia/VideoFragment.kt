@@ -1,4 +1,4 @@
-package com.maxkohl.speedreddit.rapidmode
+package com.maxkohl.speedreddit.postmedia
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
