@@ -4,15 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.maxkohl.speedreddit.data.RedditApiService
+import com.maxkohl.speedreddit.data.MainRepository
 import com.maxkohl.speedreddit.data.RedditPost
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Named
 
 @HiltViewModel
-class HomeViewModel @Inject constructor( @Named("RedditApiService") private var redditApi: RedditApiService): ViewModel() {
+class HomeViewModel @Inject constructor( private var mainRepository: MainRepository): ViewModel() {
 
     private var _redditPostsList = MutableLiveData<List<RedditPost>>()
     val redditPostsLists: LiveData<List<RedditPost>> = _redditPostsList
@@ -23,11 +22,11 @@ class HomeViewModel @Inject constructor( @Named("RedditApiService") private var 
     private val _response = MutableLiveData<String>()
     val response: LiveData<String> = _response
 
-    fun getRedditPostsList() {
+    fun getRedditPostsList(): List<RedditPost> {
         val postsList: MutableList<RedditPost> = mutableListOf()
         viewModelScope.launch {
             try {
-                val response = redditApi.getAllResponses()
+                val response = mainRepository.getRedditPostsData()
                 response.data.children.forEach { received -> postsList.add(received.data) }
                 _redditPostsList.value = postsList
                 _response.value = "${response.data.children[0].data} RECEIVED"
@@ -35,5 +34,7 @@ class HomeViewModel @Inject constructor( @Named("RedditApiService") private var 
                 _response.value = "Failure: ${e.message}"
             }
         }
+
+        return postsList
     }
 }
