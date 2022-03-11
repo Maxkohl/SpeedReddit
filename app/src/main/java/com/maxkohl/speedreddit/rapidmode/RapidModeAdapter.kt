@@ -18,7 +18,7 @@ class RapidModeAdapter(rapidModeFragment: RapidModeFragment, val redditPosts: Li
     override fun createFragment(position: Int): Fragment {
         val redditPost = redditPosts[position]
 
-        if (redditPost.isSelfPost) return TextFragment.newInstance(redditPost)
+        if (redditPost.isSelfPost == true) return TextFragment.newInstance(redditPost)
         return when (redditPost.mediaType) {
             "image" -> ImageFragment.newInstance(redditPost)
             "rich:video" -> VideoFragment.newInstance(redditPost)

@@ -72,6 +72,6 @@ class HomeFragment : Fragment() {
             return
         }
 
-        if (redditPost.isSelfPost) return findNavController().navigate(R.id.action_homeFragment_to_textFragment, bundle)
+        if (redditPost.isSelfPost == true) return findNavController().navigate(R.id.action_homeFragment_to_textFragment, bundle)
     }
 }

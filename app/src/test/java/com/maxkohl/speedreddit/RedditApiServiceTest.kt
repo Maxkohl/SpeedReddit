@@ -1,6 +1,5 @@
 package com.maxkohl.speedreddit
 
-import BaseTest
 import com.maxkohl.speedreddit.data.RedditApiResponse
 import com.maxkohl.speedreddit.data.RedditApiService
 import com.squareup.moshi.Moshi

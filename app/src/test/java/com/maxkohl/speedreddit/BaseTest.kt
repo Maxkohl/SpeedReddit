@@ -1,3 +1,4 @@
+package com.maxkohl.speedreddit
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okio.buffer
