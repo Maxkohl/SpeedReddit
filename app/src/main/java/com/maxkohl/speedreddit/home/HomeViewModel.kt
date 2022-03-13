@@ -11,7 +11,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor( private var mainRepository: MainRepository): ViewModel() {
+class HomeViewModel @Inject constructor(
+    private var mainRepository: MainRepository
+) : ViewModel() {
 
     private var _redditPostsList = MutableLiveData<List<RedditPost>>()
     val redditPostsLists: LiveData<List<RedditPost>> = _redditPostsList
@@ -22,7 +24,7 @@ class HomeViewModel @Inject constructor( private var mainRepository: MainReposit
     private val _response = MutableLiveData<String>()
     val response: LiveData<String> = _response
 
-    fun getRedditPostsList(): List<RedditPost> {
+    fun getRedditPostsList() {
         val postsList: MutableList<RedditPost> = mutableListOf()
         viewModelScope.launch {
             try {
@@ -34,7 +36,5 @@ class HomeViewModel @Inject constructor( private var mainRepository: MainReposit
                 _response.value = "Failure: ${e.message}"
             }
         }
-
-        return postsList
     }
 }
