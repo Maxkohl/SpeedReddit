@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 
-class RedditApiServiceTest : BaseTest() {
+class RedditApiServiceTestApi : ApiBaseTest() {
     private lateinit var service: RedditApiService
 
     @Before
