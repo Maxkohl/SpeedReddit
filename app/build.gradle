@@ -101,6 +101,9 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:4.3.1'
     androidTestImplementation 'org.mockito:mockito-android:4.3.1'
 
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.41'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.41'
+
     androidTestImplementation "androidx.navigation:navigation-testing:2.4.1"
 
     debugImplementation 'com.android.support.test.espresso.idling:idling-concurrent:3.0.2'

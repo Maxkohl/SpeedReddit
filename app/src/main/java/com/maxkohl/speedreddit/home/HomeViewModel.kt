@@ -1,18 +1,15 @@
 package com.maxkohl.speedreddit.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.maxkohl.speedreddit.data.MainRepository
+import androidx.lifecycle.*
 import com.maxkohl.speedreddit.data.RedditPost
+import com.maxkohl.speedreddit.data.RepositoryInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private var mainRepository: MainRepository
+    private val mainRepository: RepositoryInterface
 ) : ViewModel() {
 
     private var _redditPostsList = MutableLiveData<List<RedditPost>>()

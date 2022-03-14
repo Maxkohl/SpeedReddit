@@ -1,8 +1,5 @@
 package com.maxkohl.speedreddit.di
 
-
-import com.google.android.exoplayer2.source.dash.manifest.BaseUrl
-import com.maxkohl.speedreddit.MyApplication
 import com.maxkohl.speedreddit.data.RedditApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -12,7 +9,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -28,7 +24,6 @@ object RetrofitModule {
         return "https://reddit.com/r/"
     }
 
-
     @Singleton
     @Provides
     @Named("Retrofit")
@@ -36,7 +31,6 @@ object RetrofitModule {
         Retrofit.Builder().addConverterFactory(MoshiConverterFactory.create(moshi)).baseUrl(
             baseUrl
         ).build()
-
 
     @Singleton
     @Provides

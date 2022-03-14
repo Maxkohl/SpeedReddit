@@ -35,13 +35,13 @@ class HomeViewModelTest {
 
     private val testDispatcher = UnconfinedTestDispatcher()
 
-    lateinit var homeViewModel: HomeViewModel
+    private lateinit var homeViewModel: HomeViewModel
 
     @Mock
-    lateinit var mainRepository: MainRepository
+    private lateinit var mainRepository: MainRepository
 
     @Mock
-    lateinit var apiService: RedditApiService
+    private lateinit var apiService: RedditApiService
 
     @Before
     fun setup() {
