@@ -1,4 +1,4 @@
-package com.maxkohl.speedreddit
+package com.maxkohl.speedreddit.home
 
 import android.app.Application
 import androidx.annotation.VisibleForTesting

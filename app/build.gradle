@@ -19,7 +19,7 @@ android {
         versionName "1.0"
         multiDexEnabled true
 
-        testInstrumentationRunner "com.maxkohl.speedreddit.CustomTestRunner"
+        testInstrumentationRunner "com.maxkohl.speedreddit.util.CustomTestRunner"
     }
 
     sourceSets {

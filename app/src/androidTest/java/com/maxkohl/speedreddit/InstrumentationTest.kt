@@ -30,8 +30,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
+import com.maxkohl.speedreddit.util.BaseTest
 
 @UninstallModules(RepositoryModule::class)
 @HiltAndroidTest
@@ -69,7 +69,7 @@ class InstrumentationTest : BaseTest() {
         waitForView(withText("image_post_0")).check(matches(isDisplayed()))
         onView(withId(R.id.posts_recyclerview)).perform(
             actionOnItemAtPosition<RecyclerView.ViewHolder>(
-                1,
+                0,
                 click()
             )
         )

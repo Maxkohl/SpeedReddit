@@ -1,7 +1,6 @@
-package com.maxkohl.speedreddit
+package com.maxkohl.speedreddit.data
 
-import com.maxkohl.speedreddit.data.RedditApiResponse
-import com.maxkohl.speedreddit.data.RedditApiService
+import com.maxkohl.speedreddit.utils.ApiBaseTest
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import junit.framework.Assert.assertNotNull

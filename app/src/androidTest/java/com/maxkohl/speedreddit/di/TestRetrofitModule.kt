@@ -1,4 +1,4 @@
-package com.maxkohl.speedreddit
+package com.maxkohl.speedreddit.di
 
 import com.maxkohl.speedreddit.data.RedditApiService
 import com.squareup.moshi.Moshi

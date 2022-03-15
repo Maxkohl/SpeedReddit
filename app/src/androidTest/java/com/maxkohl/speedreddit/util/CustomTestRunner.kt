@@ -1,4 +1,4 @@
-package com.maxkohl.speedreddit
+package com.maxkohl.speedreddit.util
 
 import android.app.Application
 import android.content.Context
